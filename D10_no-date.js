@@ -410,33 +410,84 @@ console.log(searchAndDivide('Avengers'))
 
 // DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
 
+const removeIndex = (n1)=>{
+  movies.splice(n1, 1)
+  return movies
+}
+
+console.log(removeIndex(1))
+
+
 /* ESERCIZIO 20
   Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
 */
+
+const trovaC = ()=>{
+  const idCercato = document.getElementById('container')
+  return idCercato
+}
 
 /* ESERCIZIO 21
   Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
 */
 
+const trovatag = ()=>{
+  const tagCercato = document.querySelectorAll('td')
+  return tagCercato
+}
+
+
 /* ESERCIZIO 22
   Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
 */
+
+const stampaTd = ()=>{
+  const tagTd = document.querySelectorAll('td')
+  for(i=0; i<tagTd.length; i++){
+    console.log(tagTd[i].innerText)
+  }
+}
 
 /* ESERCIZIO 23
   Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
 */
 
+const coloreRosso = ()=>{
+  const daColorare= document.querySelectorAll('a')
+  for(i=0; i<daColorare.length; i++){
+    daColorare[i].classList.add('rosso')
+  }
+}
+
 /* ESERCIZIO 24
   Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
 */
+
+const elementoAggiunto = ()=>{
+  const miaLista = document.getElementById('myList')
+  const nuovoPunto = document.createElement('li')
+  miaLista.appendChild(nuovoPunto)
+}
 
 /* ESERCIZIO 25
   Scrivi una funzione per svuotare la lista non ordinata con id "myList".
 */
 
+const rimozioneElementi = ()=>{
+  const miaLista = document.getElementById('myList')
+  miaLista.remove()
+}
+
 /* ESERCIZIO 26
   Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
 */
+
+const classeAggiunta = ()=>{
+  const trTarget = document.querySelectorAll('tr')
+  for (i=0; i<trTarget.length; i++){
+    trTarget[i].classList.add('test')
+  }
+}
 
 // [EXTRA] JS Avanzato
 
@@ -470,4 +521,12 @@ console.log(searchAndDivide('Avengers'))
 
 /* Questo array viene usato per gli esercizi. Non modificarlo. */
 
+const isItPrime = (n1)=>{                                         //La logica è, dato un numero farlo dividere per tutti i numeri che lo precedono.
+  for(i=2; i<n1; i++){                                            //Se l'operazione ha resto zero vuol dire che non è un numero primo.
+    if(n1 % i ===0){                                              // i parte da 2 perché per 1 avrebbe dato un numero intero
+      return false
+    }
+  } return true
+}
 
+console.log(isItPrime(17))
