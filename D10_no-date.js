@@ -13,29 +13,60 @@ REGOLE
   Crea una variabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
 */
 
+let a = 10
+let b = 20
+
+let sum = a + b
+
+console.log(sum)
+
 /* ESERCIZIO B
   Crea una variabile chiamata "random" e assegnaci un numero casuale tra 0 e 20 (deve essere generato dinamicamente a ogni esecuzione).
 */
+
+const random = Math.floor(Math.random()*21)
+console.log(random)
 
 /* ESERCIZIO C
   Crea una variabile chiamata "me" e assegnaci un oggetto contenente le seguenti proprietà: name = il tuo nome, surname = il tuo cognome, age = la tua età.
 */
 
+const me = {
+  firstName: 'Vincenzo',
+  lastName: 'Manfredi',
+  age: 26,
+}
+
+console.log(me)
+
 /* ESERCIZIO D
   Crea del codice per rimuovere programmaticamente la proprietà "age" dall'oggetto precedentemente creato.
 */
+
+delete me.age
+console.log(me)
 
 /* ESERCIZIO E
   Crea del codice per aggiungere programmaticamente all'oggetto precedentemente creato un array chiamato "skills", contenente i linguaggi di programmazione che conosci.
 */
 
+me.skills = ['javascript','HTML']
+console.log(me)
+
 /* ESERCIZIO F
   Crea un pezzo di codice per aggiungere un nuovo elemento all'array "skills" contenuto nell'oggetto "me".
 */
 
+me.skills.push('Css')
+console.log(me)
+
 /* ESERCIZIO G
   Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
 */
+
+me.skills.pop()
+console.log(me)
+
 
 // Funzioni
 
@@ -43,9 +74,26 @@ REGOLE
   Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
 */
 
+const dice = ()=>{
+  const lancio = Math.ceil(Math.random()*6)
+  console.log('Il risultato del lancio è: '+ lancio)
+}
+
+dice()
+
 /* ESERCIZIO 2
   Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
 */
+
+const whoIsBigger = (n1, n2)=> {
+  if(n1 > n2){
+    return n1
+  } else {
+    return n2
+  }
+}
+
+console.log(whoIsBigger (5, 19))
 
 /* ESERCIZIO 3
   Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
@@ -53,10 +101,27 @@ REGOLE
   Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
 */
 
+const splitMe = (stringa) =>{
+  return stringa.split(' ')
+}
+
+console.log(splitMe('Ciao, mi chiamo Vincenzo'))
+
 /* ESERCIZIO 4
   Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
   Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
 */
+
+const deleteOne = (stringa, bool)=>{
+  if(bool === true){
+    return stringa.slice(1)
+  } else {
+    return stringa.slice(0, -1)
+  }
+}
+
+console.log(deleteOne('Vincenzo', true))
+console.log(deleteOne('Vincenzo', false))
 
 /* ESERCIZIO 5
   Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
@@ -64,9 +129,29 @@ REGOLE
   Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
 */
 
+const onlyLetters = (stringa)=>{                                  //Non 
+  const numeri = ['0','1','2','3','4','5','6','7','8','9']    
+  for(i=0; i<numeri.length; i++){
+    stringa = stringa.replaceAll(numeri[i],"")
+  }
+  return stringa
+}
+
+console.log(onlyLetters('Ho 4 cani'))
+
 /* ESERCIZIO 6
   Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
 */
+
+const isThisAnEmail = (stringa)=>{
+  if(stringa.includes('.com') || stringa.includes('.it') && stringa.includes('@')){
+    return true
+  } else {
+    return false
+  }
+}
+
+console.log(isThisAnEmail('Pierluigi@.com'))
 
 /* ESERCIZIO 8
   Scrivi una funzione chiamata "rollDice" che riceve un numero come parametro.
